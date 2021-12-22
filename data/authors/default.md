@@ -1,16 +1,13 @@
 ---
-name: Tails Azimuth
+name: Soufiane Roui
 avatar: /static/images/avatar.jpeg
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+occupation: Software engineer
+#company: Stanford University
+email: soufianeroui@outlook.com
+linkedin: https://www.linkedin.com/in/soufiane-roui/
+github: https://github.com/sroui
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+Hello, I'm a Moroccan software engineer who is patient about technology and amazed how many things can be achieved with the software. Mainly interested in service-oriented architecture style, writing high quality, maintainable, software.
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+I have a master's degree in Computer Science from National Schools of Applied Sciences. This is my personal blog where I share my thoughts and ideas.
