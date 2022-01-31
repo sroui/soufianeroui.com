@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'Personal blog',
+  title: 'Soufiane Roui',
   author: 'Soufiane Roui',
   headerTitle: 'SOUFIANE ROUI',
   description: 'Whatever can\'t be gained in its entirety, should not be discarded entirely - Arabic Proverb',
