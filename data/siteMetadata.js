@@ -2,20 +2,21 @@ const siteMetadata = {
   title: 'Soufiane Roui',
   author: 'Soufiane Roui',
   headerTitle: 'SOUFIANE ROUI',
-  description: 'Whatever can\'t be gained in its entirety, should not be discarded entirely - Arabic Proverb',
+  description:
+    "Whatever can't be gained in its entirety, should not be discarded entirely - Arabic Proverb",
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://soufianeroui.com',
+  siteRepo: 'https://github.com/sroui/personal-blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  email: 'soufianeroui@outlook.com',
+  github: 'https://github.com/sroui',
+  twitter: 'https://twitter.com/sfnroui',
+  //facebook: 'https://facebook.com',
+  //youtube: 'https://youtube.com',
+  linkedin: 'https://www.linkedin.com/in/soufiane-roui/',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
@@ -29,7 +30,7 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    provider: '',
   },
   comment: {
     // If you want to use a commenting system other than giscus you have to add it to the
