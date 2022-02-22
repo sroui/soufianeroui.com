@@ -18,10 +18,8 @@ export default function Footer() {
           <div>{siteMetadata.author}</div>
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
-
         </div>
-        <div className="mb-2">
-        </div>
+        <div className="mb-2"></div>
       </div>
     </footer>
   )
