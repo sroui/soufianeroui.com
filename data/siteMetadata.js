@@ -2,8 +2,7 @@ const siteMetadata = {
   title: 'Soufiane Roui',
   author: 'Soufiane Roui',
   headerTitle: 'SOUFIANE ROUI',
-  description:
-    "Whatever can't be gained in its entirety, should not be discarded entirely - Arabic Proverb",
+  description: 'The beginning is the most important part of the work - Plato',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://soufianeroui.com',
