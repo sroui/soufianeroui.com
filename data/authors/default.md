@@ -6,6 +6,7 @@ occupation: Software engineer
 email: soufianeroui@outlook.com
 linkedin: https://www.linkedin.com/in/soufiane-roui/
 github: https://github.com/sroui
+twitter: 'https://twitter.com/sfnroui'
 ---
 
 Hello, I'm a Moroccan software engineer who is passionate about technology and amazed how many things can be achieved using software.
