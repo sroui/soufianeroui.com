@@ -1,0 +1,85 @@
+---
+title: What you need to know about maven - part one
+date: '2022-07-06'
+tags: ['maven', 'java', 'build-tools', 'software-developement']
+draft: false
+summary: Covers subjects you need to know in order to work on real world projects that uses maven as a java build tool
+images: []
+layout: PostLayout
+canonicalUrl: what-you-need-to-know-about-maven
+---
+
+# Introduction
+
+Almost every java project uses a java build tool in order to avoid many manuel operations. And there are three popular java build tools which are maven, gradle, and ant.
+
+After nearly two years on working on real java projetcs, bellow I have summurized the subjects that helped me understand and work with maven.
+
+## Java class path
+
+We have a class `HelloWorld.java` that has a simple import statement:
+
+```java
+package ...;
+
+import com.soufianeroui.Dependency;
+
+public class HelloWorld {...}
+
+```
+
+To compile the above class, we need to tell the JVM where to search for class `Dependency.class`, so, the option `-classpath` in bellow command points to `sample_directory` which contains our class `Dependency.class`:
+
+```sh
+javac -classpath sample_directory HelloWorld.java
+
+```
+
+The class path helps us load what we will need in order to run or compile our code, for example, It is relevant to load JUnit classes when running/compiling tests but not when running/compiling production code.
+
+## Packaging
+
+There are three main java code packaging types which are:
+
+- **jar**: used to hold libraries or an executable code, in former case, you can run it using `java` CLI command.
+- **war**: used to package web applications i.e. deployable in a web server (acts like a Servlet container)
+- **ear**: used to package enterprise applications i.e. deployable only on an application server (acts like a Servlet container, EJB container, and container for other Java EE stuff)
+
+Maven supports the three packaging types mentionned above and some other types. To specify the packaging type of a project use the element `packaging`:
+
+```xml
+<packaging>war<packaging>
+```
+
+## Artifacts
+
+An artifact is an output generated after a Maven project build i.e. any packaged code. It can be, for example, a jar or a war.
+
+## Maven coordinates:
+
+Maven artifacts are identified by five key elements, groupId, artifactId, version, packaging, and classifier and are known as Maven coordinates.
+
+- **\<groupId\>..\</groupId\>**: It identifies a group of related projects e.g. `org.springframework`
+- **\<artifactId\>..\</artifactId\>**: It identifies a project inside a group of projects e.g. `spring-webmvc`
+- **\<version\>..\</version\>**: It identifies a build of a project e.g. `5.0.0`
+- **\<packaging\>..\</packaging\>**: It specifies the type of packaging
+- **\<classifier\>..\</classifier\>**: Optional, It is used for technical reasons and it is an arbitrary string that gets appended to the generated artifact's name. It distinguishes artifacts that were built from the same POM but differ in content. e.g. `spring-webmvc-5.3.21-javadoc.jar` contains javadoc, `spring-webmvc-5.3.21-sources.jar` contains sources files, `spring-webmvc-5.3.21.jar` contains compiled code.
+
+## Versions
+
+The convention, is there are two types of versions:
+
+- **Release**: a fixed, unchanged build e.g. `v1.0.0`, `v1.0.0-RELEASE`, `1.0.0`
+- **Snapshot**: a build that can be replaced by another build with that has the same coordinates e.g. `v1.0.0-SNAPSHOT`, `1.0.0-SNAPSHOT`
+
+## Maven Repositories:
+
+Maven repository is where artifacts are stored, and maven has two types of repositories:
+
+- **Local repository**: is a directory on your local machine which is accessible from `$HOME/.m2/repository`. the local repository caches remote downloads and contains temporary build artifacts that you have not yet released.
+
+- **Remote repository**: the repository is hosted somewhere on the internet, and maven downloads artifacts from only if it does not find that artifact in the local repository. If you want to add a remote repository, use the element `repositories` in `pom.xml`.
+
+By default, maven point to some remote repositories and you can find them in the super POM which we will talk about it in the next article.
+
+See you on the next part!
