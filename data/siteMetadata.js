@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'Soufiane Roui',
   author: 'Soufiane Roui',
   headerTitle: 'SOUFIANE ROUI',
-  description: 'The beginning is the most important part of the work - Plato',
+  description: 'What we fear doing most is usually what we most need to do - Ralph Waldo Emerson',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://soufianeroui.com',
