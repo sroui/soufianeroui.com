@@ -3,7 +3,7 @@ title: 'Spring 6: Baseline Upgrades'
 date: '2023-01-08'
 tags: [spring framework, spring boot, java]
 draft: false
-summary: Timeline support for spring 5 and spring 6
+summary: The timeline support for spring 5 and spring 6
 images: []
 layout: PostLayout
 canonicalUrl:
@@ -11,12 +11,12 @@ canonicalUrl:
 
 # Introduction
 
-Most java libraries and frameworks define a version baseline for either Java or the APIs it uses. "The baseline" primarily means the minimum version required to run a Spring application. Correspondingly, Spring Framework 6 has baseline upgrades that are described in the following sections.
+Most java libraries and frameworks define a version baseline for either the Java JDK or other libraries it uses. The "baseline version" primarily means the minimum version required to run a Spring application. Correspondingly, Spring Framework 6 has baseline upgrades that are described in the following sections.
 
 ## Java baseline upgrade
 
-The java baseline for Spring 6 is Java 17 which is an LTS that is released on September 14, 2021. I think it is a good choice to require Java 17 as a minimum because of the two years cadence that java follows for LTS versions.
+The java baseline for Spring 6 is Java 17, which is an LTS version that is released on September 14, 2021. I think it is a good choice to require Java 17 as a minimum because of the two years cadence that Java follows for LTS version releasing.
 
 ## Java EE baseline upgrade
 
-Spring 6 requires Jakarta EE 9 as a minimum which will enforce you to use a web server that supports it and you will need also to do some renaming of packages (`javax.*` -> `Jakarta.*`) if you want to upgrade from Spring prior versions.
+Spring 6 requires Jakarta EE 9 as a minimum, which will enforce you to use a web server that supports it and you will need also to do some renaming of packages (`javax.*` -> `Jakarta.*`) if you want to upgrade from Spring prior versions to Spring 6.
