@@ -1,0 +1,90 @@
+---
+title: 'Spring 6 and Spring Boot 3: Observation Api - Part One'
+date: '2023-01-13'
+tags: [spring framework, spring boot, java, microservices, micrometer, docker, docker-compose]
+draft: false
+summary: The timeline support for spring 5 and spring 6
+images: []
+layout: PostLayout
+canonicalUrl:
+---
+
+# Introduction
+
+One of the most important caracterstics of a production grade application, is that is offers you possibility to observe what is going on in terms of memory/cpu usage, components health e.g. databse connection, and functionality. For that matter, Spring Boot 3 introduces [Observation API](https://micrometer.io/docs/observation) which is part of the [micrometer project](https://micrometer.io/). The API will help you generate outputs that will be used by developers or third-party software to monitor your application.
+
+## Monitoring vs Observability
+
+Observability is about generating outputs from our system which will help us understand the exact root cause of a problem e.g. metrics, logs, and traces. On the other hand, monitoring is about collecting and analyzing data fetched from our system.
+
+## Observation API
+
+### Observation lifecycle
+
+Let us say, we want to register a user in our system, and we want to make the registration action observable. To do so we can wrap the user registration code in an [Observation](https://github.com/micrometer-metrics/micrometer/blob/main/micrometer-observation/src/main/java/io/micrometer/observation/Observation.java) that will be responsible for making the user registration action observable to a developer or third-party software.
+
+Before jumping into the API, we need to know about the lifecyle of an [Observation](https://github.com/micrometer-metrics/micrometer/blob/main/micrometer-observation/src/main/java/io/micrometer/observation/Observation.java). Bellow is a diagram that simplifies the lifecyle of an Observation:
+
+<figure>
+  <Image
+    src="/static/files/observation-lifecycle.drawio.svg"
+    alt="avatar"
+    width="90%"
+    height="100%"
+    style={{ marginBottom: 0 + 'em', marginLeft: 1 + 'em' }}
+  />
+  <figcaption class="text-center text-gray-500 dark:text-gray-400">
+    Simplified lifecyle of an Observation
+  </figcaption>
+</figure>
+
+An observation can open/close a scope multiple times.
+Bellow code is a demonstration of the lifecycle phases mentionned above:
+
+```java
+ObservationRegistry observationRegistry = ObservationRegistry.create();
+Observation observation = Observation.createNotStarted("sample", observationRegistry); // stopped
+
+observation.start(); //started
+
+try (Observation.Scope scope = observation.openScope()) { // scope opened and closed after action execution
+   System.out.println("Observed Action");
+} catch (Exception e) {
+   observation.error(e); //error
+} finally {
+   observation.stop(); //stopped
+}
+```
+
+And bellow code is a simplified version:
+
+```java
+ObservationRegistry observationRegistry = ObservationRegistry.create();
+Observation observation = Observation.createNotStarted("sample", observationRegistry);
+
+observation.observe(() -> System.out.println("Observed Action"));
+```
+
+### Observation, ObservationRegistry, and ObservationHandler
+
+An `ObservationRegistry` is responsible for building and storing instances of an `Observation`, whereas instances of `ObservationHandler` are responsible for handling different lifecycle phases of an `Observation`.
+
+You can build an ObservationHandler using bellow code which will expose prometheus metrics:
+
+```java
+observationRegistry = ObservationRegistry.create();
+meterRegistry = new PrometheusMeterRegistry(PrometheusConfig.DEFAULT);
+observationRegistry.observationConfig().observationHandler(new DefaultMeterObservationHandler(meterRegistry));
+```
+
+then, you can use bellow code to create an observation and display created metrics:
+
+```java
+Observation observation = Observation.createNotStarted("test", observationRegistry);
+observation.observe(() -> log.info("Action performed"));
+log.info("Prometheus metrics:\n{}", ((PrometheusMeterRegistry) meterRegistry).scrape());
+```
+
+All above code is included in the github repository [observation-api-demo](https://github.com/sroui/tutorials/tree/main/spring/observation-api-demo).
+
+See you in the next part!
