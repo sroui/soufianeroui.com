@@ -5,7 +5,7 @@ const siteMetadata = {
   description: 'What we fear doing most is usually what we most need to do - Ralph Waldo Emerson',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://soufianeroui.com',
+  siteUrl: 'https://souroui.com',
   siteRepo: 'https://github.com/sroui/personal-blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',

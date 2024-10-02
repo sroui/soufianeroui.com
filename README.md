@@ -1,6 +1,6 @@
 ## About
 
-This project contains source code of my personal blog https://soufianeroui.com
+This project contains source code of my personal blog https://souroui.com
 
 ## Credit
 
